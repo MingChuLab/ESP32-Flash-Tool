@@ -4,14 +4,14 @@ import struct
 import tempfile
 import unittest
 
-from gdflash.esptool_job import parse_write_progress
-from gdflash.i18n import STRINGS, _
-from gdflash.manifest import (
+from espflash.esptool_job import parse_write_progress
+from espflash.i18n import STRINGS, _
+from espflash.manifest import (
     IMAGE_MAGIC,
     ManualImage,
     read_image_header,
 )
-from gdflash.serialboot import extract_version
+from espflash.serialboot import extract_version
 
 
 class TestManifest(unittest.TestCase):

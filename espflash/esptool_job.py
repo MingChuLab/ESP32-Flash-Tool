@@ -176,7 +176,7 @@ class BootCheckThread(QThread):
 
     def run(self):
         import time
-        from gdflash.serialboot import BootResult, capture_boot_log
+        from espflash.serialboot import BootResult, capture_boot_log
 
         time.sleep(0.5)  # let esptool release the port and the chip reset
         try:

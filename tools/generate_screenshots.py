@@ -10,9 +10,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QApplication
 
-from gdflash.gui_minimal import MainWindow
-from gdflash.i18n import set_language
-from gdflash.manifest import FirmwareManifest, ManualImage
+from espflash.gui_minimal import MainWindow
+from espflash.i18n import set_language
+from espflash.manifest import FirmwareManifest, ManualImage
 
 
 def create_mock_firmware(target_dir: Path) -> Path:

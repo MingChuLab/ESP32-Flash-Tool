@@ -26,11 +26,11 @@ a.datas += [(os.path.join(dest, os.path.basename(src)), src, 'DATA')
             for src, dest in collect_data_files('esptool')]
 a.hiddenimports += collect_submodules('esptool')
 
-# Collect every FILE under gdflash/assets, recursively: the folder also
+# Collect every FILE under espflash/assets, recursively: the folder also
 # holds subdirectories (e.g. assets/icons), and blindly registering a
 # directory as a DATA entry makes COLLECT fail with "Resource ... is not a
 # valid file!" (latent until a subdir was added on 2026-10-14).
-assets_src = os.path.join('gdflash', 'assets')
+assets_src = os.path.join('espflash', 'assets')
 if os.path.isdir(assets_src):
     for root, _dirs, files in os.walk(assets_src):
         for f in files:
@@ -39,7 +39,7 @@ if os.path.isdir(assets_src):
 
 pyz = PYZ(a.pure)
 
-icon_file = os.path.join('gdflash', 'assets', 'logo_minimal.ico')
+icon_file = os.path.join('espflash', 'assets', 'logo_minimal.ico')
 if not os.path.exists(icon_file):
     icon_file = 'app.ico'
 

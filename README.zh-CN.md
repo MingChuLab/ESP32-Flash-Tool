@@ -157,7 +157,7 @@ pyinstaller --noconfirm --clean ESP32FlashTool.spec
 ```
 esp32-flash-tool/
 ├── flash_tool.py        # 程序入口
-├── gdflash/
+├── espflash/
 │   ├── assets/          # 图标与 UI 矢量图形资源
 │   ├── assets.py        # 图标加载器与系统托盘/任务栏集成
 │   ├── esptool_job.py   # esptool 命令构造、执行线程、芯片识别、进度解析

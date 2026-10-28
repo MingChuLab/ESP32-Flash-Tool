@@ -22,7 +22,7 @@ import sys
 from pathlib import Path
 
 # --- PyInstaller frozen-mode esptool forwarding -----------------------------
-# gdflash.esptool_job launches esptool as `[sys.executable, "-m", "esptool"]`,
+# espflash.esptool_job launches esptool as `[sys.executable, "-m", "esptool"]`,
 # which breaks once frozen: sys.executable is THIS exe and the bootloader
 # does not interpret "-m" (argparse then dies with "unrecognized arguments").
 # Frozen builds instead invoke `ESP32FlashTool.exe --esptool <args>`; the
@@ -41,10 +41,10 @@ if getattr(sys, "frozen", False) and len(sys.argv) > 1 and sys.argv[1] == "--esp
 from PySide6.QtCore import QSettings
 from PySide6.QtWidgets import QApplication, QMessageBox
 
-from gdflash.assets import get_app_icon, setup_windows_app_id
-from gdflash.gui import ORG_NAME, APP_NAME
-from gdflash.i18n import _, set_language
-from gdflash.manifest import FirmwareManifest, ManifestError
+from espflash.assets import get_app_icon, setup_windows_app_id
+from espflash.gui import ORG_NAME, APP_NAME
+from espflash.i18n import _, set_language
+from espflash.manifest import FirmwareManifest, ManifestError
 
 DEFAULT_FIRMWARE_DIR = Path(__file__).resolve().parent / "firmware"
 DEFAULT_MANIFEST_DIR = DEFAULT_FIRMWARE_DIR if DEFAULT_FIRMWARE_DIR.is_dir() else None
@@ -81,9 +81,9 @@ def main() -> int:
             print(_("manifest_dir_missing").format(dir=args.manifest_dir))
 
     if args.ui == "standard":
-        from gdflash.gui import MainWindow
+        from espflash.gui import MainWindow
     else:
-        from gdflash.gui_minimal import MainWindow
+        from espflash.gui_minimal import MainWindow
 
     window = MainWindow(manifest)
     window.show()  # MainWindow sizes itself (window height follows log visibility)

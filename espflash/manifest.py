@@ -12,7 +12,7 @@ import json
 from pathlib import Path
 import struct
 
-from gdflash.i18n import _
+from espflash.i18n import _
 
 APP_DESC_MAGIC = 0xABCD5432
 DEFAULT_APP_OFFSET = 0x10000
