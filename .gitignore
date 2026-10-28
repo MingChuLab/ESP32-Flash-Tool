@@ -1,0 +1,13 @@
+# PyInstaller 打包产物（分发走 GitHub Releases，不进仓库）
+dist/
+build/
+
+# Python 缓存
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# 产品固件与发布目录（工具与固件分离）
+firmware/
