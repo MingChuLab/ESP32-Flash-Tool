@@ -4,14 +4,14 @@ import struct
 import tempfile
 import unittest
 
-from espflash.esptool_job import parse_write_progress
-from espflash.i18n import STRINGS, _
-from espflash.manifest import (
+from esp32flash.esptool_job import parse_write_progress
+from esp32flash.i18n import STRINGS, _
+from esp32flash.manifest import (
     IMAGE_MAGIC,
     ManualImage,
     read_image_header,
 )
-from espflash.serialboot import extract_version
+from esp32flash.serialboot import extract_version
 
 
 class TestManifest(unittest.TestCase):

@@ -10,7 +10,7 @@ and prefer adding new keys over reusing ambiguous ones.
 
 STRINGS = {
     "en": {
-        "app_title": "ESP32 Firmware Flash Tool",
+        "app_title": "ESP32 Flash Tool",
         "fw_group": "Firmware",
         "fw_placeholder": "No firmware selected (release manifest.json or merged .bin)",
         "browse": "Browse...",

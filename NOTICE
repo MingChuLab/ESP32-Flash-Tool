@@ -1,0 +1,53 @@
+ESP32 Flash Tool
+Copyright (C) 2026 MingChuLab
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+
+Third-Party Components
+======================
+
+esptool
+-------
+Copyright (C) Espressif Systems
+License: GNU General Public License v2.0 or later (GPLv2+)
+Source: https://github.com/espressif/esptool
+Usage: firmware flashing engine; bundled in PyInstaller executable
+       distributions together with its flasher stub binaries.
+
+PySide6 (Qt for Python)
+-----------------------
+Copyright (C) The Qt Company
+License: GNU Lesser General Public License v3 (LGPLv3)
+Project: https://wiki.qt.io/Qt_for_Python
+Source: https://code.qt.io/cgit/pyside/pyside-setup.git/
+Usage: graphical user interface.
+
+pyserial
+--------
+Copyright (C) Chris Liechti
+License: BSD 3-Clause License
+Source: https://github.com/pyserial/pyserial
+Usage: serial port enumeration and boot-log capture.
+
+
+Source Availability
+===================
+
+The complete corresponding source code of this project is available at:
+https://github.com/MingChuLab/ESP32-Flash-Tool
+
+Source code and full license texts for all third-party components are
+publicly available at the upstream URLs listed above. When distributing
+the standalone executable (PyInstaller build), the bundled esptool
+(GPLv2+) source can be obtained from its upstream repository, and the
+PySide6/Qt (LGPLv3) libraries may be replaced by relinking against a
+user-supplied Qt for Python installation.

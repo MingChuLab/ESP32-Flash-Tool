@@ -1,0 +1,52 @@
+name: Bug Report
+description: Report a flashing problem or software bug
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the problem and what you expected instead.
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: e.g. Windows 11 23H2
+    validations:
+      required: true
+
+  - type: dropdown
+    id: run-mode
+    attributes:
+      label: How are you running the tool?
+      options:
+        - Prebuilt Windows exe
+        - From source (Python)
+    validations:
+      required: true
+
+  - type: input
+    id: chip
+    attributes:
+      label: Chip model
+      placeholder: e.g. ESP32-C6
+
+  - type: dropdown
+    id: firmware-type
+    attributes:
+      label: Firmware source
+      options:
+        - Release directory (manifest.json)
+        - IDF build directory (app .bin)
+        - Merged factory .bin
+
+  - type: textarea
+    id: log
+    attributes:
+      label: Flashing / boot log
+      description: Paste the full content of the log area (auto-expands on failure).
+      render: text

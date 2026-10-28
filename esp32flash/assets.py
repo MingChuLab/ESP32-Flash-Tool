@@ -1,4 +1,4 @@
-"""Asset manager, icon provider, and desktop integration for ESPFlash UI."""
+"""Asset manager, icon provider, and desktop integration for ESP32Flash UI."""
 from __future__ import annotations
 
 import sys
@@ -13,13 +13,13 @@ _CACHED_APP_ICON: Optional[QIcon] = None
 
 
 def get_assets_dir() -> Path:
-    """Return the assets directory inside espflash package."""
+    """Return the assets directory inside esp32flash package."""
     base = Path(__file__).resolve().parent
     assets = base / "assets"
     if assets.is_dir():
         return assets
     if hasattr(sys, "_MEIPASS"):
-        meipass_assets = Path(sys._MEIPASS) / "espflash" / "assets"
+        meipass_assets = Path(sys._MEIPASS) / "esp32flash" / "assets"
         if meipass_assets.is_dir():
             return meipass_assets
     return assets
@@ -104,11 +104,11 @@ def get_app_icon() -> QIcon:
     ]
     if hasattr(sys, "_MEIPASS"):
         ico_candidates = [
-            Path(sys._MEIPASS) / "espflash" / "assets" / "logo_minimal.ico",
+            Path(sys._MEIPASS) / "esp32flash" / "assets" / "logo_minimal.ico",
             Path(sys._MEIPASS) / "app.ico",
         ] + ico_candidates
         png_candidates = [
-            Path(sys._MEIPASS) / "espflash" / "assets" / "logo_minimal.png",
+            Path(sys._MEIPASS) / "esp32flash" / "assets" / "logo_minimal.png",
         ] + png_candidates
 
     for p in ico_candidates:
@@ -136,12 +136,12 @@ def setup_system_tray(window: QWidget) -> Optional[QSystemTrayIcon]:
         return None
 
     try:
-        from espflash.i18n import _
+        from esp32flash.i18n import _
         tooltip = _("app_title")
         show_text = _("tray_show")
         exit_text = _("tray_exit")
     except Exception:
-        tooltip = "ESP32 Firmware Flash Tool"
+        tooltip = "ESP32 Flash Tool"
         show_text = "Show Main Window"
         exit_text = "Exit"
 

@@ -1,0 +1,11 @@
+# Default: LF line endings for all text files
+* text=auto eol=lf
+
+# Windows batch files require CRLF (cmd.exe parsing)
+*.bat text eol=crlf
+
+# Binary files: no line-ending conversion
+*.png binary
+*.ico binary
+*.bin binary
+*.zip binary

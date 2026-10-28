@@ -30,7 +30,7 @@ from PySide6.QtWidgets import (
 )
 from serial.tools import list_ports
 
-from espflash.esptool_job import (
+from esp32flash.esptool_job import (
     PROGRESS_LINE_PREFIX,
     BootCheckThread,
     FLASH_BAUD_FALLBACK,
@@ -42,8 +42,8 @@ from espflash.esptool_job import (
     normalize_chip_name,
     parse_detected_chip,
 )
-from espflash.i18n import _, set_language
-from espflash.manifest import (
+from esp32flash.i18n import _, set_language
+from esp32flash.manifest import (
     BuildDirImage,
     FirmwareManifest,
     ManifestError,
@@ -51,7 +51,7 @@ from espflash.manifest import (
     describe_image,
     firmware_from_bin,
 )
-from espflash.assets import apply_windows_taskbar_icon, get_app_icon, get_arrow_icon_path, setup_system_tray
+from esp32flash.assets import apply_windows_taskbar_icon, get_app_icon, get_arrow_icon_path, setup_system_tray
 
 BOOT_CHECK_TIMEOUT_S = 15.0
 

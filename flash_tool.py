@@ -1,7 +1,15 @@
 #!/usr/bin/env python3
 """
 =============================================================================
- ESP32 Firmware Flash Tool (tester edition)
+ ESP32 Flash Tool
+=============================================================================
+ Copyright (C) 2026 MingChuLab
+
+ This program is free software: you can redistribute it and/or modify it
+ under the terms of the GNU General Public License as published by the
+ Free Software Foundation, either version 3 of the License, or (at your
+ option) any later version. See LICENSE for the full text and NOTICE for
+ third-party component licenses.
 =============================================================================
  One-click firmware flashing for testers. No ESP-IDF, no build system:
  pick the firmware (release directory with manifest.json, or a bare merged
@@ -22,7 +30,7 @@ import sys
 from pathlib import Path
 
 # --- PyInstaller frozen-mode esptool forwarding -----------------------------
-# espflash.esptool_job launches esptool as `[sys.executable, "-m", "esptool"]`,
+# esp32flash.esptool_job launches esptool as `[sys.executable, "-m", "esptool"]`,
 # which breaks once frozen: sys.executable is THIS exe and the bootloader
 # does not interpret "-m" (argparse then dies with "unrecognized arguments").
 # Frozen builds instead invoke `ESP32FlashTool.exe --esptool <args>`; the
@@ -41,10 +49,10 @@ if getattr(sys, "frozen", False) and len(sys.argv) > 1 and sys.argv[1] == "--esp
 from PySide6.QtCore import QSettings
 from PySide6.QtWidgets import QApplication, QMessageBox
 
-from espflash.assets import get_app_icon, setup_windows_app_id
-from espflash.gui import ORG_NAME, APP_NAME
-from espflash.i18n import _, set_language
-from espflash.manifest import FirmwareManifest, ManifestError
+from esp32flash.assets import get_app_icon, setup_windows_app_id
+from esp32flash.gui import ORG_NAME, APP_NAME
+from esp32flash.i18n import _, set_language
+from esp32flash.manifest import FirmwareManifest, ManifestError
 
 DEFAULT_FIRMWARE_DIR = Path(__file__).resolve().parent / "firmware"
 DEFAULT_MANIFEST_DIR = DEFAULT_FIRMWARE_DIR if DEFAULT_FIRMWARE_DIR.is_dir() else None
@@ -81,9 +89,9 @@ def main() -> int:
             print(_("manifest_dir_missing").format(dir=args.manifest_dir))
 
     if args.ui == "standard":
-        from espflash.gui import MainWindow
+        from esp32flash.gui import MainWindow
     else:
-        from espflash.gui_minimal import MainWindow
+        from esp32flash.gui_minimal import MainWindow
 
     window = MainWindow(manifest)
     window.show()  # MainWindow sizes itself (window height follows log visibility)
